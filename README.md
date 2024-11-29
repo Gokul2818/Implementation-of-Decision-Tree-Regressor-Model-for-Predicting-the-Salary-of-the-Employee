@@ -24,29 +24,35 @@ data=pd.read_csv("Salary.csv")
 data.head()
 data.info()
 data.isnull().sum()
+
 from sklearn.preprocessing import LabelEncoder
-le = LabelEncoder ()
+le=LabelEncoder()
 data["Position"]=le.fit_transform(data["Position"])
 data.head()
-x = data[["Position","Level"]]
-y = data["Salary"]
+
+x=data[["Position","Level"]]
+x.head()
+y=data[["Salary"]]
+y.head()
+
 from sklearn.model_selection import train_test_split
-x_train,x_test,y_train,y_test = train_test_split(x,y,test_size = 0.2, random_state = 2)
+x_train, x_test, y_train, y_test=train_test_split(x,y,test_size=0.2,random_state=2)
+
 from sklearn.tree import DecisionTreeRegressor
-dt = DecisionTreeRegressor()
+dt=DecisionTreeRegressor()
 dt.fit(x_train,y_train)
 y_pred=dt.predict(x_test)
-from sklearn import metrics
-mse = metrics.mean_squared_error(y_test,y_pred)
-print(mse)
-r2 = metrics.r2_score(y_test,y_pred)
-print(r2)
+y_pred
+
+r2=metrics.r2_score(y_test,y_pred)
+r2
 dt.predict([[5,6]])
 */
 ```
 
 ## Output:
-![Screenshot (55)](https://github.com/user-attachments/assets/419088ee-b52b-433e-9c9f-1d3b5ce12fe2)
+![Screenshot (56)](https://github.com/user-attachments/assets/cdec34cf-ee98-42ad-be2c-8ee55c30fa90)
+
 
 
 
